@@ -10,8 +10,8 @@ import pandas as pd
 from pandas_datareader.data import DataReader
 import time
 
-server = flask.Flask(__name__)
-app = dash.Dash(__name__, server=server)
+server = flask.Flask('stock-tickers')
+app = dash.Dash('stock-tickers', server=server)
 
 colorscale = cl.scales['9']['qual']['Paired']
 
