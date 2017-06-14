@@ -80,7 +80,7 @@ def update_graph(tickers):
             figure={
                 'data': [candlestick] + bollinger_traces,
                 'layout': {
-                    'margin': {'b': 0, 'r': 60, 'l': 20, 't': 0},
+                    'margin': {'b': 0, 'r': 10, 'l': 60, 't': 0},
                     'legend': {'x': 0}
                 }
             }
