@@ -1,1 +1,1 @@
-# dash-stock-tickers-demo-app
+Dash stock tickers demo app
