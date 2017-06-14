@@ -6,12 +6,15 @@ import colorlover as cl
 import datetime as dt
 import finsymbols
 import flask
+import os
 import pandas as pd
 from pandas_datareader.data import DataReader
 import time
 
 server = flask.Flask('stock-tickers')
 app = dash.Dash('stock-tickers', server=server)
+server.secret_key = os.environ.get('secret_key', 'secret')
+
 
 colorscale = cl.scales['9']['qual']['Paired']
 
