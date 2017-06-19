@@ -10,7 +10,7 @@ import pandas as pd
 from pandas_datareader.data import DataReader
 import time
 
-app.scripts.config.serve_locally = True
+app.scripts.config.serve_locally = False
 dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
 
 server = flask.Flask('stock-tickers')
