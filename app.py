@@ -4,7 +4,6 @@ import dash_html_components as html
 
 import colorlover as cl
 import datetime as dt
-import finsymbols
 import flask
 import os
 import pandas as pd
@@ -21,7 +20,23 @@ colorscale = cl.scales['9']['qual']['Paired']
 df_symbol = pd.read_csv('tickers.csv')
 
 app.layout = html.Div([
-    html.H2('Google Finance Explorer'),
+    html.Div([
+        html.Img(src="https://www.google.ca/finance/f/logo_material-4224265490.png",
+                 style={
+                    'height': '50px',
+                    'padding-top': '6px',
+                    'float': 'left'
+                 },
+                 ),
+        html.H2('Explorer',
+                style={'display': 'inline',
+                       'font-size': '2.8em',
+                       'margin-left': '10px',
+                       'font-family': 'sans-serif',
+                       'font-weight': 'bolder',
+                       'color': "#757575"
+                       })
+    ]),
     dcc.Dropdown(
         id='stock-ticker-input',
         options=[{'label': s[0], 'value': s[1]}
