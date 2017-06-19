@@ -5,4 +5,5 @@ Dash abstracts away all of the technologies and protocols required to build an i
 To learn more check out our [documentation](http://dash-docs.herokuapp.com/dash/).
 
 The app found in this repo looks like the following:
+
 ![Alt desc](https://github.com/plotly/dash-stock-tickers-demo-app/raw/RawGitAndGoogleAnalytics/Screenshots/Screenshot.png)
