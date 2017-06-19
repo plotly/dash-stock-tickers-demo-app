@@ -5,8 +5,8 @@ click==6.7
 colorlover==0.2.1
 dash-core-components==0.5.0
 dash-html-components==0.6.0
-dash-renderer==0.7.1
-dash.ly==0.17.0
+dash-renderer==0.7.2
+dash.ly==0.17.3
 decorator==4.0.11
 enum34==1.1.6
 finsymbols==1.2.0
@@ -26,7 +26,7 @@ nbformat==4.3.0
 numpy==1.13.0
 pandas==0.20.2
 pandas-datareader==0.4.0
-plotly==2.0.9
+plotly==2.0.10
 python-dateutil==2.6.0
 pytz==2017.2
 requests==2.18.1

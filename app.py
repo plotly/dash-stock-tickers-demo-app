@@ -11,7 +11,7 @@ from pandas_datareader.data import DataReader
 import time
 
 server = flask.Flask('stock-tickers')
-app = dash.Dash('stock-tickers', server=server)
+app = dash.Dash('stock-tickers', server=server, url_base_pathname='/dash/gallery/stock-tickers/', csrf_protect=False)
 server.secret_key = os.environ.get('secret_key', 'secret')
 
 app.scripts.config.serve_locally = False
@@ -121,8 +121,6 @@ if 'DYNO' in os.environ:
         'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
     })
 
-
-href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i'
 
 if __name__ == '__main__':
     app.run_server(debug=True)
