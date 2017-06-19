@@ -4,12 +4,14 @@ import dash_html_components as html
 
 import colorlover as cl
 import datetime as dt
-import finsymbols
 import flask
 import os
 import pandas as pd
 from pandas_datareader.data import DataReader
 import time
+
+app.scripts.config.serve_locally = False
+dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
 
 server = flask.Flask('stock-tickers')
 app = dash.Dash('stock-tickers', server=server)
@@ -107,12 +109,19 @@ def update_graph(tickers):
 
     return graphs
 
-external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
-                "https://codepen.io/alishobeiri/pen/Ngpapv.css?v=plotly"]
 
+external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
+                "https://cdn.rawgit.com/plotly/dash-stock-tickers-demo-app/master/stylesheet.css?token=ARkbw4K80MNDWvEnW9zQ1PltXAJF9ZqHks5ZUWR3wA%3D%3D"]
 
 for css in external_css:
     app.css.append_css({"external_url": css})
+
+
+if 'DYNO' in os.environ:
+    app.scripts.append_script({
+        'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
+    })
+
 
 href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i'
 
