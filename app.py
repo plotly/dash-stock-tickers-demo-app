@@ -25,17 +25,17 @@ app.layout = html.Div([
         html.Img(src="https://www.google.ca/finance/f/logo_material-4224265490.png",
                  style={
                     'height': '50px',
-                    'padding-top': '6px',
+                    'padding-top': '5px',
                     'float': 'left'
                  },
                  ),
         html.H2('Explorer',
                 style={'display': 'inline',
-                       'font-size': '2.8em',
+                       'font-size': '2.65em',
                        'margin-left': '7px',
                        'font-weight': 'bolder',
                        'font-family': 'Product Sans',
-                       'color': "#757575"
+                       'color': "rgba(117, 117, 117, 0.95)"
                        })
     ]),
     dcc.Dropdown(
