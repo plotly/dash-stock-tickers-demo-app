@@ -110,7 +110,7 @@ def update_graph(tickers):
 
 
 external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
-                "https://cdn.rawgit.com/plotly/dash-stock-tickers-demo-app/master/stylesheet.css?token=ARkbw4K80MNDWvEnW9zQ1PltXAJF9ZqHks5ZUWR3wA%3D%3D"]
+                "https://cdn.rawgit.com/plotly/stylesheets/master/stylesheet.css"]
 
 for css in external_css:
     app.css.append_css({"external_url": css})
