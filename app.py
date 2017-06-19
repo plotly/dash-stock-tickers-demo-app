@@ -10,13 +10,12 @@ import pandas as pd
 from pandas_datareader.data import DataReader
 import time
 
-app.scripts.config.serve_locally = False
-dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
-
 server = flask.Flask('stock-tickers')
 app = dash.Dash('stock-tickers', server=server)
 server.secret_key = os.environ.get('secret_key', 'secret')
 
+app.scripts.config.serve_locally = False
+dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
 
 colorscale = cl.scales['9']['qual']['Paired']
 
