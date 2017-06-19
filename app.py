@@ -4,6 +4,7 @@ import dash_html_components as html
 
 import colorlover as cl
 import datetime as dt
+import finsymbols
 import flask
 import os
 import pandas as pd
@@ -31,7 +32,7 @@ app.layout = html.Div([
         html.H2('Explorer',
                 style={'display': 'inline',
                        'font-size': '2.8em',
-                       'margin-left': '10px',
+                       'margin-left': '7px',
                        'font-family': 'sans-serif',
                        'font-weight': 'bolder',
                        'color': "#757575"
