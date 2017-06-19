@@ -4,7 +4,6 @@ import dash_html_components as html
 
 import colorlover as cl
 import datetime as dt
-import finsymbols
 import flask
 import os
 import pandas as pd
@@ -107,12 +106,20 @@ def update_graph(tickers):
 
     return graphs
 
+
 external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
                 "https://codepen.io/alishobeiri/pen/Ngpapv.css?v=plotly"]
 
 
 for css in external_css:
     app.css.append_css({"external_url": css})
+
+
+if 'DYNO' in os.environ:
+    app.scripts.append_script({
+        'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
+    })
+
 
 href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i'
 
