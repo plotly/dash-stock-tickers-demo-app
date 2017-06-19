@@ -33,8 +33,8 @@ app.layout = html.Div([
                 style={'display': 'inline',
                        'font-size': '2.8em',
                        'margin-left': '7px',
-                       'font-family': 'sans-serif',
                        'font-weight': 'bolder',
+                       'font-family': 'Product Sans',
                        'color': "#757575"
                        })
     ]),
@@ -107,11 +107,14 @@ def update_graph(tickers):
 
     return graphs
 
-app.css.append_css({
-    'external_url': (
-        'https://codepen.io/chriddyp/pen/yXaGgK.css?timestamp=' + str(int(time.time())),
-    )
-})
+external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
+                "https://codepen.io/alishobeiri/pen/Ngpapv.css?v=plotly"]
+
+
+for css in external_css:
+    app.css.append_css({"external_url": css})
+
+href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i'
 
 if __name__ == '__main__':
     app.run_server(debug=True)
