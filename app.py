@@ -11,7 +11,7 @@ from pandas_datareader.data import DataReader
 import time
 
 server = flask.Flask('stock-tickers')
-app = dash.Dash('stock-tickers', server=server, url_base_pathname='/dash/gallery/stock-tickers/', csrf_protect=False)
+app = dash.Dash('stock-tickers', server=server) # , url_base_pathname='/dash/gallery/stock-tickers/', csrf_protect=False)
 server.secret_key = os.environ.get('secret_key', 'secret')
 
 app.scripts.config.serve_locally = False
@@ -23,20 +23,16 @@ df_symbol = pd.read_csv('tickers.csv')
 
 app.layout = html.Div([
     html.Div([
-        html.Img(src="https://www.google.ca/finance/f/logo_material-4224265490.png",
-                 style={
-                    'height': '50px',
-                    'padding-top': '5px',
-                    'float': 'left'
-                 },
-                 ),
-        html.H2('Explorer',
+        html.H2('Google Finance Explorer',
                 style={'display': 'inline',
+                       'float': 'left',
                        'font-size': '2.65em',
                        'margin-left': '7px',
                        'font-weight': 'bolder',
                        'font-family': 'Product Sans',
-                       'color': "rgba(117, 117, 117, 0.95)"
+                       'color': "rgba(117, 117, 117, 0.95)",
+                       'margin-top': '20px',
+                       'margin-bottom': '0'
                        }),
         html.Img(src="https://cdn.rawgit.com/plotly/design-assets/master/logo/dash/images/dash-logo-by-plotly-stripe.png?token=ARkbw71c0vCS8Jnau4bHOoc9HRF_lZAtks5ZUrwDwA%3D%3D",
                 style={
