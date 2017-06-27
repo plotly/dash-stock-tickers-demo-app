@@ -34,7 +34,7 @@ app.layout = html.Div([
                        'margin-top': '20px',
                        'margin-bottom': '0'
                        }),
-        html.Img(src="https://cdn.rawgit.com/plotly/design-assets/master/logo/dash/images/dash-logo-by-plotly-stripe.png?token=ARkbw71c0vCS8Jnau4bHOoc9HRF_lZAtks5ZUrwDwA%3D%3D",
+        html.Img(src="https://cdn.rawgit.com/plotly/design-assets/a8c0b6972563dfa3e8e7b5d7454d4909fa9db21b/logo/dash/images/dash-logo-by-plotly-stripe.png?token=ARkbwzp9Cq3SoAp8SBfsMVVfotVrJJUxks5ZW_jVwA%3D%3D",
                 style={
                     'height': '100px',
                     'float': 'right'
