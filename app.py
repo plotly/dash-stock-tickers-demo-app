@@ -5,6 +5,7 @@ import dash_html_components as html
 import colorlover as cl
 import datetime as dt
 import flask
+from flask_cors import CORS
 import os
 import pandas as pd
 from pandas_datareader.data import DataReader
@@ -14,6 +15,7 @@ app = dash.Dash(
     'stock-tickers',
     url_base_pathname='/dash/gallery/stock-tickers/')
 server = app.server
+CORS(server)
 
 if 'DYNO' in os.environ:
     app.config.routes_pathname_prefix = '/dash/gallery/stock-tickers/'
