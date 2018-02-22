@@ -5,14 +5,21 @@ import dash_html_components as html
 import colorlover as cl
 import datetime as dt
 import flask
+from flask_cors import CORS
 import os
 import pandas as pd
 from pandas_datareader.data import DataReader
 import time
 
-server = flask.Flask('stock-tickers')
-app = dash.Dash('stock-tickers', server=server, url_base_pathname='/dash/gallery/stock-tickers/', csrf_protect=False)
-server.secret_key = os.environ.get('secret_key', 'secret')
+app = dash.Dash(
+    'stock-tickers',
+    url_base_pathname='/dash/gallery/stock-tickers/')
+server = app.server
+CORS(server)
+
+if 'DYNO' in os.environ:
+    app.config.routes_pathname_prefix = '/dash/gallery/stock-tickers/'
+    app.config.requests_pathname_prefix = 'https://dash-stock-tickers.herokuapp.com/dash/gallery/stock-tickers/'
 
 app.scripts.config.serve_locally = False
 dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
