@@ -22,7 +22,7 @@ df_symbol = pd.read_csv('tickers.csv')
 
 app.layout = html.Div([
     html.Div([
-        html.H2('Google Finance Explorer',
+        html.H2('Morningstar Finance Explorer',
                 style={'display': 'inline',
                        'float': 'left',
                        'font-size': '2.65em',
@@ -42,7 +42,7 @@ app.layout = html.Div([
     ]),
     dcc.Dropdown(
         id='stock-ticker-input',
-        options=[{'label': s[0], 'value': s[1]}
+        options=[{'label': s[0], 'value': str(s[1])}
                  for s in zip(df_symbol.Company, df_symbol.Symbol)],
         value=['YHOO', 'GOOGL'],
         multi=True
@@ -64,9 +64,9 @@ def update_graph(tickers):
     graphs = []
     for i, ticker in enumerate(tickers):
         try:
-            df = DataReader(ticker, 'google',
+            df = DataReader(str(ticker), 'morningstar',
                             dt.datetime(2017, 1, 1),
-                            dt.datetime.now())
+                            dt.datetime.now()).reset_index()
         except:
             graphs.append(html.H3(
                 'Data is not available for {}'.format(ticker),
@@ -75,7 +75,7 @@ def update_graph(tickers):
             continue
 
         candlestick = {
-            'x': df.index,
+            'x': df['Date'],
             'open': df['Open'],
             'high': df['High'],
             'low': df['Low'],
@@ -88,7 +88,7 @@ def update_graph(tickers):
         }
         bb_bands = bbands(df.Close)
         bollinger_traces = [{
-            'x': df.index, 'y': y,
+            'x': df['Date'], 'y': y,
             'type': 'scatter', 'mode': 'lines',
             'line': {'width': 1, 'color': colorscale[(i*2) % len(colorscale)]},
             'hoverinfo': 'none',
