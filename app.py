@@ -11,6 +11,12 @@ from pandas_datareader.data import DataReader
 import time
 
 app = dash.Dash('stock-tickers')
+if 'DYNO' in os.environ:
+    if bool(os.getenv('DASH_PATH_ROUTING', 0)):
+        app.config.requests_pathname_prefix = '/{}/'.format(
+            os.environ['DASH_APP_NAME']
+        )
+
 server = app.server
 
 app.scripts.config.serve_locally = False
