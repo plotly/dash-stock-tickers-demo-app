@@ -66,10 +66,11 @@ def update_graph(tickers):
         try:
             df = DataReader(str(ticker), 'morningstar',
                             dt.datetime(2017, 1, 1),
-                            dt.datetime.now()).reset_index()
+                            dt.datetime.now(),
+                            retry_count=0).reset_index()
         except:
             graphs.append(html.H3(
-                'Data is not available for {}'.format(ticker),
+                'Data is not available for {}, please retry later.'.format(ticker),
                 style={'marginTop': 20, 'marginBottom': 20}
             ))
             continue
