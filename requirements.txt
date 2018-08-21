@@ -26,8 +26,8 @@ MarkupSafe==1.0
 nbformat==4.3.0
 numpy==1.13.0
 pandas==0.20.2
-git+https://github.com/pydata/pandas-datareader.git
 plotly==2.4.1
+pyEX==0.0.10
 python-dateutil==2.6.0
 pytz==2017.2
 requests==2.18.1
