@@ -14,7 +14,7 @@ flask-cors
 Flask==0.12.2
 Flask-Compress==1.4.0
 Flask-SeaSurf==0.2.2
-functools32==3.2.3.post2
+functools32==3.2.3.post2; python_version < "3.0"
 gunicorn==19.7.1
 idna==2.5
 ipython-genutils==0.2.0
