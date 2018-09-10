@@ -17,7 +17,7 @@ dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min
 
 colorscale = cl.scales['9']['qual']['Paired']
 
-df = pd.read_csv('stock-ticker.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/dash-stock-ticker-demo.csv')
 
 app.layout = html.Div([
     html.Div([
