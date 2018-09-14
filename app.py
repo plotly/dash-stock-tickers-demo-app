@@ -7,6 +7,7 @@ import datetime as dt
 import flask
 import os
 import pandas as pd
+pd.core.common.is_list_like = pd.api.types.is_list_like
 from pandas_datareader.data import DataReader
 import time
 
