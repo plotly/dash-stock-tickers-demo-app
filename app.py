@@ -9,11 +9,14 @@ import os
 import pandas as pd
 import time
 
-app = dash.Dash('stock-tickers')
+app = dash.Dash(
+    __name__, 
+    assets_external_scripts='https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
+)
 server = app.server
 
 app.scripts.config.serve_locally = False
-dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-finance-1.28.0.min.js'
+
 
 colorscale = cl.scales['9']['qual']['Paired']
 
@@ -106,19 +109,6 @@ def update_graph(tickers):
             ))
 
     return graphs
-
-
-external_css = ["https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i",
-                "https://cdn.rawgit.com/plotly/dash-app-stylesheets/2cc54b8c03f4126569a3440aae611bbef1d7a5dd/stylesheet.css"]
-
-for css in external_css:
-    app.css.append_css({"external_url": css})
-
-
-if 'DYNO' in os.environ:
-    app.scripts.append_script({
-        'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
-    })
 
 
 if __name__ == '__main__':
